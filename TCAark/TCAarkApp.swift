@@ -12,7 +12,7 @@ import TRoot
 struct TCAarkApp: App {
   var store: RootStore
   var viewStore: RootViewStore
-  
+
   init() {
     let root: Root = .init()
     self.store = .init(
@@ -21,11 +21,11 @@ struct TCAarkApp: App {
     )
     self.viewStore = .init(store)
   }
-  
-    var body: some Scene {
-        WindowGroup {
-          RootView
-            .init(store: store)
-        }
+
+  var body: some Scene {
+    WindowGroup {
+      RootView
+        .init(store: store)
     }
+  }
 }

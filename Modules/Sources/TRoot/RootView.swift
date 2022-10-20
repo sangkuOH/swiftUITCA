@@ -11,14 +11,14 @@ import SwiftUI
 public struct RootView: View {
   @ObservedObject
   private var viewStore: RootViewStore
-  
+
   private let store: RootStore
-  
+
   public init(store: RootStore) {
     self.store = store
     self.viewStore = .init(store)
   }
-  
+
   public var body: some View {
     VStack {
       TextField

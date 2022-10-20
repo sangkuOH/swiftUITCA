@@ -90,6 +90,7 @@
 				562020C728FFCDCA00DD2C2D /* Sources */,
 				562020C828FFCDCA00DD2C2D /* Frameworks */,
 				562020C928FFCDCA00DD2C2D /* Resources */,
+				56B46833290145670069BA57 /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -147,6 +148,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		56B46833290145670069BA57 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=/opt/homebrew/bin:$PATH\n\nif which swiftlint > /dev/null; then\n    swiftlint lint --config \"$PROJECT_DIR/.swiftlint.TCAark.yml\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint and run `bundle exec fastlane lint`\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		562020C728FFCDCA00DD2C2D /* Sources */ = {

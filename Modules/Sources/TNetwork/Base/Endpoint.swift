@@ -7,20 +7,20 @@
 import Foundation
 
 protocol Endpoint {
-    var scheme: String { get }
-    var host: String { get }
-    var path: String { get }
-    var method: RequestMethod { get }
-    var header: [String: String]? { get }
-    var body: [String: String]? { get }
+  var scheme: String { get }
+  var host: String { get }
+  var path: String { get }
+  var method: RequestMethod { get }
+  var header: [String: String]? { get }
+  var body: [String: String]? { get }
 }
 
 extension Endpoint {
-    var scheme: String {
-        return "https"
-    }
+  var scheme: String {
+    "https"
+  }
 
-    var host: String {
-        return "wordsapiv1.p.rapidapi.com"
-    }
+  var host: String {
+    "wordsapiv1.p.rapidapi.com"
+  }
 }

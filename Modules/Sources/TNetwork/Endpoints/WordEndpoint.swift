@@ -16,16 +16,16 @@ extension WordEndpoint: Endpoint {
       return "/words/\(word)/similarTo"
     }
   }
-  
+
   var method: RequestMethod {
     switch self {
     case .words:
       return .get
     }
   }
-  
+
   var header: [String: String]? {
-    //MARK: enter your key
+    // MARK: enter your key
     let key = "e96baced85mshe28be68776f9861p184a48jsn3af9ea0c2f9d"
     let host = "wordsapiv1.p.rapidapi.com"
     switch self {
@@ -36,7 +36,7 @@ extension WordEndpoint: Endpoint {
       ]
     }
   }
-  
+
   var body: [String: String]? {
     switch self {
     case .words:

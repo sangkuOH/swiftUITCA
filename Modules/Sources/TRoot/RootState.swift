@@ -12,7 +12,7 @@ extension Root {
   public struct State: Equatable {
     @BindableState var text: String
     var similarTo: SimilarTo
-    
+
     public init(
       text: String = "",
       similarTo: SimilarTo = .init()

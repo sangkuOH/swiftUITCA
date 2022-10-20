@@ -7,23 +7,23 @@
 import TCommon
 
 public protocol WordService {
-    func getSimilarTo(word: String) async -> Result<SimilarTo, RequestError>
+  func getSimilarTo(word: String) async -> Result<SimilarTo, RequestError>
 }
 
 public struct WordServiceLive: HTTPClient, WordService {
   public init() {
   }
-  
+
   public func getSimilarTo(word: String) async -> Result<SimilarTo, RequestError> {
-    return await sendRequest(endpoint: WordEndpoint.words(word), responseModel: SimilarTo.self)
+    await sendRequest(endpoint: WordEndpoint.words(word), responseModel: SimilarTo.self)
   }
 }
 
 public struct WordServiceMock: WordService {
   public init() {
   }
-  
+
   public func getSimilarTo(word: String) async -> Result<SimilarTo, RequestError> {
-    return .success(.init(word: word, similarTo: ["mocking data"]))
+    .success(.init(word: word, similarTo: ["mocking data"]))
   }
 }

@@ -20,21 +20,21 @@ extension HTTPClient {
     urlComponents.scheme = endpoint.scheme
     urlComponents.host = endpoint.host
     urlComponents.path = endpoint.path
-    
+
     guard let url = urlComponents.url else {
       return .failure(.invalidURL)
     }
-    
+
     var request = URLRequest(url: url)
     request.httpMethod = endpoint.method.rawValue
     request.allHTTPHeaderFields = endpoint.header
-    
+
     if let body = endpoint.body {
       request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
     }
-    
+
     NetworkLogger.log(request: request)
-    
+
     do {
       let (data, response) = try await URLSession.shared.data(for: request, delegate: nil)
       NetworkLogger.log(response: response as? HTTPURLResponse, data: data)
@@ -47,8 +47,10 @@ extension HTTPClient {
           return .failure(.decode)
         }
         return .success(decodedResponse)
+
       case 401:
         return .failure(.unauthorized)
+
       default:
         return .failure(.unexpectedStatusCode)
       }

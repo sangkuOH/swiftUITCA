@@ -7,7 +7,7 @@
 public struct SimilarTo: Codable, Hashable {
   public let word: String
   public let similarTo: [String]
-  
+
   public init(
     word: String = "",
     similarTo: [String] = []
