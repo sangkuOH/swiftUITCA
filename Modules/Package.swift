@@ -15,12 +15,14 @@ let package = Package(
     ],
     dependencies: [
       .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: "0.43.0"),
+      .package(url: "https://github.com/SDWebImage/SDWebImageSwiftUI", from: "2.2.1"),
     ],
     targets: [
       .target(
         name: "TCommon",
         dependencies: [
-          .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+          .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+          .product(name: "SDWebImageSwiftUI", package: "SDWebImageSwiftUI"),
           ]
 //        resources: [
 //          .process("Resources")

@@ -10,7 +10,7 @@ import ComposableArchitecture
 
 extension Root {
   public enum Action: BindableAction {
-    case binding(BindingAction<Root.State>)
+    case binding(BindingAction<State>)
     case sendWord
     case sendWordResult(Result<SimilarTo, RequestError>)
   }
