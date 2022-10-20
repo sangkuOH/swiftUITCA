@@ -5,18 +5,20 @@
 //  Created by  오상구 on 2022/10/19.
 //
 
+import ComposableArchitecture
+import TCommon
+
 extension Root {
   public struct State: Equatable {
-    var text: String
-    var count: Int
+    @BindableState var text: String
+    var similarTo: SimilarTo
     
     public init(
       text: String = "",
-      count: Int = 0
+      similarTo: SimilarTo = .init()
     ) {
       self.text = text
-      self.count = count
+      self.similarTo = similarTo
     }
-    
   }
 }

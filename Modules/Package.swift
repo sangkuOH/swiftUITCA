@@ -9,6 +9,7 @@ let package = Package(
     ],
     products: [
       .library(name: "TDependency", targets: ["TDependency"]),
+      .library(name: "TNetwork", targets: ["TNetwork"]),
       .library(name: "TCommon", targets: ["TCommon"]),
       .library(name: "TRoot", targets: ["TRoot"])
     ],
@@ -28,6 +29,13 @@ let package = Package(
       .target(
         name: "TDependency",
         dependencies: [
+          "TCommon",
+          "TNetwork"
+          ]
+      ),
+      .target(
+        name: "TNetwork",
+        dependencies: [
           "TCommon"
           ]
       ),
@@ -35,6 +43,7 @@ let package = Package(
         name: "TRoot",
         dependencies: [
           "TCommon",
+          "TNetwork",
           "TDependency"
         ]
       )

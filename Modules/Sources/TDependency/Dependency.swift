@@ -6,18 +6,16 @@
 //
 
 import ComposableArchitecture
+import TNetwork
 
-public enum EnvironmentKey: DependencyKey {
-  public static let liveValue = RootEnvironment()
+public enum WordServiceKey: DependencyKey {
+  public static let liveValue: WordService = WordServiceLive()
+  public static let previewValue: WordService = WordServiceMock()
 }
 
 public extension DependencyValues {
-  var rootEnvironment: RootEnvironment {
-    get { self[EnvironmentKey.self] }
-    set { self[EnvironmentKey.self] = newValue }
+  var wordService: WordService {
+    get { self[WordServiceKey.self] }
+    set { self[WordServiceKey.self] = newValue }
   }
-}
-
-public struct RootEnvironment {
-  public init() {}
 }

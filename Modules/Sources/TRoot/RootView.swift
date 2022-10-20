@@ -21,17 +21,19 @@ public struct RootView: View {
   
   public var body: some View {
     VStack {
-      Text(viewStore.text)
-      Text("\(viewStore.count)")
-      Button {
-        viewStore.send(.tappedButton)
-      } label: {
-        Text("Button")
+      TextField
+        .init(
+          "동의어를 찾을 수 있습니다.",
+          text: viewStore.binding(\.$text)
+        )
+        .onSubmit {
+          viewStore.send(.sendWord)
+        }
+      List {
+        ForEach(viewStore.similarTo.similarTo, id: \.self) { item in
+          Text(item)
+        }
       }
-      .buttonStyle(.borderedProminent)
-    }
-    .task {
-      viewStore.send(.onAppear)
     }
   }
 }
